@@ -11,31 +11,70 @@
 
   <TabControl>
     <TabItem Header="User Input">
-      <ScrollViewer>
-        <StackPanel Margin="12" Spacing="8">
-          <TextBlock Text="Enter parameters for the exposure process:"/>
+      <Grid ColumnDefinitions="*,3*" RowDefinitions="Auto,*">
+        <!-- Left panel with inputs -->
+        <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Padding="12" BorderBrush="#FFE8E8E8" BorderThickness="0,0,1,0">
+          <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <StackPanel Spacing="12" Width="220">
+              <StackPanel Orientation="Horizontal" Spacing="8">
+                <Button Content="Printer Settings" Width="120" Command="{Binding ShowSettingsCommand}"/>
+              </StackPanel>
 
-          <StackPanel Orientation="Horizontal" Spacing="8">
-            <TextBlock Text="Name:" VerticalAlignment="Center" Width="80"/>
-            <TextBox Width="250" Text="{Binding Settings.Name, Mode=TwoWay}"/>
-          </StackPanel>
+              <TextBlock Text="Enter exposure parameters:" FontWeight="SemiBold" Margin="0,0,0,4"/>
 
-          <StackPanel Orientation="Horizontal" Spacing="8">
-            <TextBlock Text="Slices:" VerticalAlignment="Center" Width="80"/>
-            <NumericUpDown Minimum="1" Maximum="1000" Value="{Binding Settings.Slices, Mode=TwoWay}" Width="120"/>
-          </StackPanel>
+              <StackPanel Spacing="4">
+                <TextBlock Text="Name:" FontSize="12" FontWeight="SemiBold"/>
+                <TextBox Width="180" Text="{Binding Settings.Name, Mode=TwoWay}"/>
+              </StackPanel>
 
-          <StackPanel Orientation="Horizontal" Spacing="8">
-            <TextBlock Text="Intensity:" VerticalAlignment="Center" Width="80"/>
-            <Slider Minimum="0" Maximum="100" Value="{Binding Settings.Intensity, Mode=TwoWay}" Width="200"/>
-          </StackPanel>
+              <StackPanel Spacing="4">
+                <TextBlock Text="Length:" FontSize="12" FontWeight="SemiBold"/>
+                <NumericUpDown Minimum="0" Value="{Binding Settings.Length, Mode=TwoWay}" Width="180" Increment="0.1"/>
+              </StackPanel>
 
-          <StackPanel Orientation="Horizontal" Spacing="8">
-            <Button Content="Start" Width="120" HorizontalAlignment="Left"/>
-            <Button Content="Save" Width="120" HorizontalAlignment="Left" Command="{Binding SaveCommand}"/>
+              <StackPanel Spacing="4">
+                <TextBlock Text="Width:" FontSize="12" FontWeight="SemiBold"/>
+                <NumericUpDown Minimum="0" Value="{Binding Settings.Width, Mode=TwoWay}" Width="180" Increment="0.1"/>
+              </StackPanel>
+
+              <StackPanel Spacing="4">
+                <TextBlock Text="Height of Bottom:" FontSize="12" FontWeight="SemiBold"/>
+                <NumericUpDown Minimum="0" Value="{Binding Settings.HeightOfBottomPainting, Mode=TwoWay}" Width="180" Increment="0.1"/>
+              </StackPanel>
+
+              <StackPanel Spacing="4">
+                <TextBlock Text="Height of Light Array (feet):" FontSize="12" FontWeight="SemiBold"/>
+                <NumericUpDown Minimum="0" Value="{Binding Settings.HeightOfLightArray, Mode=TwoWay}" Width="180" Increment="0.1"/>
+              </StackPanel>
+
+              <StackPanel Spacing="4">
+                <TextBlock Text="Min Wavelength (nm):" FontSize="12" FontWeight="SemiBold"/>
+                <NumericUpDown Minimum="400" Maximum="700" Value="{Binding MinWavelength, Mode=TwoWay}" Width="180" Increment="1"/>
+              </StackPanel>
+
+              <StackPanel Spacing="4">
+                <TextBlock Text="Max Wavelength (nm):" FontSize="12" FontWeight="SemiBold"/>
+                <NumericUpDown Minimum="400" Maximum="700" Value="{Binding MaxWavelength, Mode=TwoWay}" Width="180" Increment="1"/>
+              </StackPanel>
+
+              <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,8,0,0">
+                <Button Content="Start" Width="85"/>
+                <Button Content="Save" Width="85" Command="{Binding SaveCommand}"/>
+              </StackPanel>
+            </StackPanel>
+          </ScrollViewer>
+        </Border>
+
+        <!-- Right panel for visualization -->
+        <Border Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Padding="12" Background="#FFF5F5F5">
+          <StackPanel Spacing="12">
+            <TextBlock Text="Visualization" FontSize="14" FontWeight="Bold" Foreground="#FF333333"/>
+            <Border BorderThickness="1" BorderBrush="#FFD0D0D0" CornerRadius="4" Padding="12">
+              <TextBlock Text="Results and visualizations will appear here" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.6"/>
+            </Border>
           </StackPanel>
-        </StackPanel>
-      </ScrollViewer>
+        </Border>
+      </Grid>
     </TabItem>
 
     <TabItem Header="Efficiency Curves">
