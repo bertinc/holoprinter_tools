@@ -17,28 +17,26 @@
           <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <StackPanel Spacing="12" Width="220">
               <StackPanel Orientation="Horizontal" Spacing="8">
-                <Button Content="Printer Settings" Width="120" Command="{Binding ShowSettingsCommand}"/>
+                <Button Content="Default Settings" Width="120" Command="{Binding ShowSettingsCommand}"/>
               </StackPanel>
 
-              <TextBlock Text="Enter exposure parameters:" FontWeight="SemiBold" Margin="0,0,0,4"/>
-
               <StackPanel Spacing="4">
-                <TextBlock Text="Name:" FontSize="12" FontWeight="SemiBold"/>
+                <TextBlock Text="Project Name:" FontSize="12" FontWeight="SemiBold"/>
                 <TextBox Width="180" Text="{Binding Settings.Name, Mode=TwoWay}"/>
               </StackPanel>
 
               <StackPanel Spacing="4">
-                <TextBlock Text="Length:" FontSize="12" FontWeight="SemiBold"/>
+                <TextBlock Text="Length of Painting:" FontSize="12" FontWeight="SemiBold"/>
                 <NumericUpDown Minimum="0" Value="{Binding Settings.Length, Mode=TwoWay}" Width="180" Increment="0.1"/>
               </StackPanel>
 
               <StackPanel Spacing="4">
-                <TextBlock Text="Width:" FontSize="12" FontWeight="SemiBold"/>
+                <TextBlock Text="Width of Painting:" FontSize="12" FontWeight="SemiBold"/>
                 <NumericUpDown Minimum="0" Value="{Binding Settings.Width, Mode=TwoWay}" Width="180" Increment="0.1"/>
               </StackPanel>
 
               <StackPanel Spacing="4">
-                <TextBlock Text="Height of Bottom:" FontSize="12" FontWeight="SemiBold"/>
+                <TextBlock Text="Height of Bottom of Painting:" FontSize="12" FontWeight="SemiBold"/>
                 <NumericUpDown Minimum="0" Value="{Binding Settings.HeightOfBottomPainting, Mode=TwoWay}" Width="180" Increment="0.1"/>
               </StackPanel>
 
@@ -48,12 +46,12 @@
               </StackPanel>
 
               <StackPanel Spacing="4">
-                <TextBlock Text="Min Wavelength (nm):" FontSize="12" FontWeight="SemiBold"/>
+                <TextBlock Text="Min Playback Wavelength (nm):" FontSize="12" FontWeight="SemiBold"/>
                 <NumericUpDown Minimum="400" Maximum="700" Value="{Binding MinWavelength, Mode=TwoWay}" Width="180" Increment="1"/>
               </StackPanel>
 
               <StackPanel Spacing="4">
-                <TextBlock Text="Max Wavelength (nm):" FontSize="12" FontWeight="SemiBold"/>
+                <TextBlock Text="Max Playback Wavelength (nm):" FontSize="12" FontWeight="SemiBold"/>
                 <NumericUpDown Minimum="400" Maximum="700" Value="{Binding MaxWavelength, Mode=TwoWay}" Width="180" Increment="1"/>
               </StackPanel>
 

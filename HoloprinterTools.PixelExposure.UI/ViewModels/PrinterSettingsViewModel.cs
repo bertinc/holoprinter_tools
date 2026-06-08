@@ -179,6 +179,32 @@ namespace HoloprinterTools.PixelExposure.UI.ViewModels
             }
         }
 
+        public double NominalViewingHeight
+        {
+            get => _settings.NominalViewingHeight;
+            set
+            {
+                if (_settings.NominalViewingHeight != value)
+                {
+                    _settings.NominalViewingHeight = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public double MinimumViewingDistance
+        {
+            get => _settings.MinimumViewingDistance;
+            set
+            {
+                if (_settings.MinimumViewingDistance != value)
+                {
+                    _settings.MinimumViewingDistance = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public ICommand OkCommand { get; }
         public ICommand CancelCommand { get; }
 

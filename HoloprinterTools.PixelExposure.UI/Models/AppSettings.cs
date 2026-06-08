@@ -42,5 +42,9 @@ namespace HoloprinterTools.PixelExposure.UI.Models
 
         // i. Maximum delta-n
         public double MaxDeltaN { get; set; } = 0.035;
+
+        // j. Viewing parameters
+        public double NominalViewingHeight { get; set; } = 0.0;
+        public double MinimumViewingDistance { get; set; } = 0.0;
     }
 }

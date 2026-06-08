@@ -119,6 +119,21 @@
 			</Grid>
 		  </StackPanel>
 		</Border>
+
+		<!-- Viewing Parameters Section -->
+		<Border BorderThickness="1" BorderBrush="#FFE0E0E0" CornerRadius="4" Padding="12">
+		  <StackPanel Spacing="12">
+			<TextBlock Text="Viewing Parameters" FontWeight="Bold" Foreground="#FF666666"/>
+
+			<Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto" ColumnSpacing="8" RowSpacing="8">
+			  <TextBlock Grid.Row="0" Grid.Column="0" Text="Nominal Viewing Height (feet):" VerticalAlignment="Center" TextAlignment="Right"/>
+			  <NumericUpDown Grid.Row="0" Grid.Column="1" Value="{Binding NominalViewingHeight, Mode=TwoWay}" Width="200" Increment="0.1" Minimum="0"/>
+
+			  <TextBlock Grid.Row="1" Grid.Column="0" Text="Minimum Viewing Distance (feet):" VerticalAlignment="Center" TextAlignment="Right"/>
+			  <NumericUpDown Grid.Row="1" Grid.Column="1" Value="{Binding MinimumViewingDistance, Mode=TwoWay}" Width="200" Increment="0.1" Minimum="0"/>
+			</Grid>
+		  </StackPanel>
+		</Border>
 	  </StackPanel>
 	</ScrollViewer>
 
