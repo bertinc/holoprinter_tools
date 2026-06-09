@@ -1,8 +1,8 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using HoloprinterTools.PixelExposure.UI.Common;
-using HoloprinterTools.PixelExposure.UI.Models;
+using HoloprinterTools.PixelExposure.Core.Common;
+using HoloprinterTools.PixelExposure.Core.Models;
 
 namespace HoloprinterTools.PixelExposure.UI.ViewModels
 {

@@ -2,9 +2,9 @@ using Avalonia.Controls;
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using HoloprinterTools.PixelExposure.UI.Services;
+using HoloprinterTools.PixelExposure.Core.Services;
+using HoloprinterTools.PixelExposure.Core.Models;
 using HoloprinterTools.PixelExposure.UI.ViewModels;
-using HoloprinterTools.PixelExposure.UI.Models;
 
 namespace HoloprinterTools.PixelExposure.UI
 {

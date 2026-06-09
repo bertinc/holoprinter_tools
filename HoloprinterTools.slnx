@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="HoloprinterTools.PixelExposure.Core/HoloprinterTools.PixelExposure.Core.csproj" />
+  <Project Path="HoloprinterTools.PixelExposure.Interop/HoloprinterTools.PixelExposure.Interop.csproj" />
   <Project Path="HoloprinterTools.PixelExposure.UI/HoloprinterTools.PixelExposure.UI.csproj" />
 </Solution>

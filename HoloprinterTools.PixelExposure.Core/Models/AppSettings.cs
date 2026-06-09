@@ -1,4 +1,4 @@
-namespace HoloprinterTools.PixelExposure.UI.Models
+namespace HoloprinterTools.PixelExposure.Core.Models
 {
     public class AppSettings
     {

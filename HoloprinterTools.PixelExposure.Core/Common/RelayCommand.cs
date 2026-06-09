@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Input;
 
-namespace HoloprinterTools.PixelExposure.UI.Common
+namespace HoloprinterTools.PixelExposure.Core.Common
 {
     public class RelayCommand : ICommand
     {

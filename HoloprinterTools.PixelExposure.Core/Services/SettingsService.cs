@@ -1,9 +1,9 @@
 using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
-using HoloprinterTools.PixelExposure.UI.Models;
+using HoloprinterTools.PixelExposure.Core.Models;
 
-namespace HoloprinterTools.PixelExposure.UI.Services
+namespace HoloprinterTools.PixelExposure.Core.Services
 {
     public class SettingsService
     {
