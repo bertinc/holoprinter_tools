@@ -3,4 +3,16 @@
 	<TargetFramework>net10.0</TargetFramework>
 	<Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <!-- Copy native DLL to output directory for Windows x64 -->
+  <ItemGroup>
+	<RuntimeIdentifierInformation Include="win-x64" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Content Include="runtimes\win-x64\native\rcwa_dll.dll">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  <Visible>True</Visible>
+	</Content>
+  </ItemGroup>
 </Project>

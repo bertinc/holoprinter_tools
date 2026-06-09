@@ -13,6 +13,7 @@ namespace HoloprinterTools.PixelExposure.UI.ViewModels
     {
         private readonly SettingsService _settingsService;
         private AppSettings _settings;
+        private EfficiencyCurvesViewModel _efficiencyCurvesVM;
 
         public AppSettings Settings
         {
@@ -22,6 +23,19 @@ namespace HoloprinterTools.PixelExposure.UI.ViewModels
                 if (_settings != value)
                 {
                     _settings = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public EfficiencyCurvesViewModel EfficiencyCurvesVM
+        {
+            get => _efficiencyCurvesVM;
+            private set
+            {
+                if (_efficiencyCurvesVM != value)
+                {
+                    _efficiencyCurvesVM = value;
                     OnPropertyChanged();
                 }
             }
@@ -82,6 +96,7 @@ namespace HoloprinterTools.PixelExposure.UI.ViewModels
             Settings = settings;
             _minWavelength = settings.MinWavelength;
             _maxWavelength = settings.MaxWavelength;
+            EfficiencyCurvesVM = new EfficiencyCurvesViewModel();
 
             SaveCommand = new RelayCommand(async _ => await SaveAsync());
             ShowSettingsCommand = new RelayCommand(_ => OnShowSettingsRequested());

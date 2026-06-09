@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:HoloprinterTools.PixelExposure.UI.ViewModels"
+        xmlns:controls="clr-namespace:HoloprinterTools.PixelExposure.UI.Controls"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="HoloprinterTools.PixelExposure.UI.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -76,14 +77,60 @@
     </TabItem>
 
     <TabItem Header="Efficiency Curves">
-      <Grid Margin="12">
-        <TextBlock Text="Efficiency curves will be shown here." VerticalAlignment="Top"/>
-        <!-- Placeholder for chart or plot control. Replace with your plotting control later. -->
-        <Border BorderThickness="1" BorderBrush="Gray" CornerRadius="4" Margin="0,24,0,0">
-          <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.7">
-            (Efficiency chart placeholder)
-          </TextBlock>
+      <Grid ColumnDefinitions="250,*" RowDefinitions="Auto,*,Auto">
+        <!-- Left panel with inputs -->
+        <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Padding="12" BorderBrush="#FFE8E8E8" BorderThickness="0,0,1,0">
+          <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <StackPanel Spacing="12" Width="220">
+              <TextBlock Text="Sweep Parameters" FontSize="12" FontWeight="SemiBold" Foreground="#FF333333"/>
+
+              <StackPanel Spacing="4">
+                <TextBlock Text="Start Wavelength (nm):" FontSize="11"/>
+                <NumericUpDown Minimum="400" Maximum="900" Value="760" Width="200" Increment="1"/>
+              </StackPanel>
+
+              <StackPanel Spacing="4">
+                <TextBlock Text="Stop Wavelength (nm):" FontSize="11"/>
+                <NumericUpDown Minimum="400" Maximum="900" Value="900" Width="200" Increment="1"/>
+              </StackPanel>
+
+              <StackPanel Spacing="4">
+                <TextBlock Text="Step Size (nm):" FontSize="11"/>
+                <NumericUpDown Minimum="0.1" Maximum="50" Value="2" Width="200" Increment="0.1"/>
+              </StackPanel>
+
+              <Separator Background="#FFE0E0E0" Height="1" Margin="0,4"/>
+
+              <TextBlock Text="Grating Parameters" FontSize="12" FontWeight="SemiBold" Foreground="#FF333333"/>
+
+              <StackPanel Spacing="4">
+                <TextBlock Text="Spatial Frequency:" FontSize="11"/>
+                <NumericUpDown Minimum="100" Maximum="5000" Value="1200" Width="200" Increment="10"/>
+              </StackPanel>
+
+              <StackPanel Spacing="4">
+                <TextBlock Text="Effective Thickness:" FontSize="11"/>
+                <NumericUpDown Minimum="0.1" Maximum="100" Value="4" Width="200" Increment="0.1"/>
+              </StackPanel>
+
+              <StackPanel Spacing="4">
+                <TextBlock Text="Delta N:" FontSize="11"/>
+                <NumericUpDown Minimum="0.001" Maximum="1" Value="0.112" Width="200" Increment="0.001"/>
+              </StackPanel>
+
+              <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,12,0,0">
+                <Button Content="Run Sweep" Width="105" Command="{Binding EfficiencyCurvesVM.RunWavelengthSweepCommand}"/>
+              </StackPanel>
+            </StackPanel>
+          </ScrollViewer>
         </Border>
+
+        <!-- Right panel with chart -->
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Orientation="Vertical" Spacing="8" Margin="12">
+          <TextBlock Text="{Binding EfficiencyCurvesVM.Title}" FontSize="14" FontWeight="Bold" Foreground="#FF333333"/>
+          <controls:LineChartControl DataPoints="{Binding EfficiencyCurvesVM.DataPoints}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+          <TextBlock Text="{Binding EfficiencyCurvesVM.StatusMessage}" Foreground="#FF666666" FontSize="11"/>
+        </StackPanel>
       </Grid>
     </TabItem>
   </TabControl>
